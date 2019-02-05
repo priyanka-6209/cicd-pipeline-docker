@@ -9,9 +9,9 @@ pipeline {
             }
         }
         stage('Build Docker Image'){
-	when {
+	/*when {
 	   branch 'master'
-	}
+	}*/
 	steps {
 	  script{
 	    app=docker.build("DOCKERHUB-ID/node-app")
@@ -22,9 +22,9 @@ pipeline {
 	}
    }
    stage('Push Docker Image'){
-      when{
+      /*when{
 	branch 'master'
-      }
+      }*/
       steps{
 	script{
 	   docker.withregistry('https://registry.hub.docker.com','DOCKERHUB-ID'){
