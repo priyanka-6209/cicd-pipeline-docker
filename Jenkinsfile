@@ -27,7 +27,7 @@ pipeline {
       }*/
       steps{
 	script{
-	   docker.withregistry('https://registry.hub.docker.com','dockerhub-id'){
+	   docker.withRegistry('https://registry.hub.docker.com','dockerhub-id'){
 	      app.push("${env.BUILD_NUMBER}")
 	      app.push("latest")
 	   }
