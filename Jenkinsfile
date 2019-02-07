@@ -34,15 +34,15 @@ pipeline {
       }
       }
    }
-	 stage('Deploy to Prod'){
-		 steps{
-		 kubernetesDeploy(
-		 	kubeconfigId: 'kubeconfig',
-			configs: 'Application.yaml',
-			enableConfigSubstitution: false
-		 )
-		 echo 'App url:http://apiaigdevopscope.net:30026'
-		 }
-	 }
+    stage('Deploy kubernetes'){
+          steps {
+             kubernetesDeploy(
+                kubeconfigId: 'kubeconfig',
+                configs: 'application.yaml',
+                enableConfigSubstitution: false)
+                echo 'App url: http://54.186.233.130:30026'
+          }
+                     
+        }
     }
 }
