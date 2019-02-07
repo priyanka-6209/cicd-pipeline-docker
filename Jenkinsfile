@@ -36,6 +36,7 @@ pipeline {
    }
     stage('Deploy kubernetes'){
           steps {
+		  sh 'kubectl application.yaml'
              kubernetesDeploy(
                 kubeconfigId: 'kubeconfig',
                 configs: 'application.yaml',
