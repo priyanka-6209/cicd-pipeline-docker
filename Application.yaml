@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: node-deploy
+  name: node-app
   namespace: pirates
   labels:
     app: node-app
@@ -19,5 +19,20 @@ spec:
       - name: node-app
         image: priyanka6209/node-app:latest
         ports:
-        - containerPort: 80
-        
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app
+  labels:
+    app: node-app
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    nodePort: 30026
+  selector:
+    app: node-app
