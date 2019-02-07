@@ -40,7 +40,7 @@ pipeline {
 			configs: 'Application.yaml',
 			enableConfigSubstitution: false
 		 )
-		 echo 'App url:http://apiaigdevopscope.net:30026/
+		 echo 'App url:http://apiaigdevopscope.net:30026/'
 	 }
     }
 }
